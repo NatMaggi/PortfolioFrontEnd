@@ -1,0 +1,59 @@
+
+#linea{
+    padding: 20px;
+    background-color:#fcb219;
+}
+#skills{
+    background-color:#fcb219;  
+}
+
+#habilidades{
+    background-color:#fcb219;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 30px;
+}
+
+h2{
+    color:black;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.details{
+    width: 100%;
+    display: flex;  
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.bar{
+    position: relative;
+
+    border: 2px solid #31bbec;
+
+    border-radius: 20px;
+
+}
+.bar div{
+    position: relative;
+    width: 0;
+    height: 9px;
+    border-radius: 10px;
+    background-color: #31bbec;
+}
+.skills:not(:last-child){
+    margin-bottom: 30px;
+}
+#html-bar{
+    animation: html-fill 5s forwards;
+    animation-iteration-count: infinite;
+}
+@keyframes html-fill{
+    100%{
+        width: 90%;
+    }
+}
+

@@ -1,8 +1,30 @@
 .flex-container {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    background-color: #fcb219;
+    font-family: 'Open Sans', sans-serif;
     }
 #acerca{
-    border: 3px solid #fcb219;
+    margin-top: 10px;
+    background-color: #fcb219;
+    border-style: none;
+}
+  img{
+    margin-top: 10px;
+    width: auto;
+    height: auto;
   }
+  @media (min-width: 576px){
+    #perfil{
+        width: 100%;
+
+    }
+}
+@media (max-width: 575px){
+    #perfil{
+        width: 30%;
+        margin-left: 150px;
+     
+    }
+
+}
