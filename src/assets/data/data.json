@@ -1,0 +1,155 @@
+{
+    "nombre": "Natalia",
+    "apellido": "Maggi",
+    "edad": "30 Años",
+    "telefono": "15000000",
+    "correo": "nn.maggi@gmail.com",
+    "sobre_mi": "En constante formación. Cursando actualmente la segunda etapa de Argentina Programa. Incorporando nuevas tecnologías, incursionando en la ciberseguridad",
+    "posicion": "Full Stack Developer Jr",
+    "url_foto": "#",
+    "banner": "#",
+    "experiencia": [{
+        "nombreEmpresa": "Colegio de Psicólogos de Misiones",
+        "fechaInicio": "Octubre 2021",
+        "fechaFin": "Actualidad",
+        "descripcion": "Encargada de redes sociales y comunicación. Armado y publicación de noticias en la web de la institución"
+
+    },
+    {
+        "nombreEmpresa": "Freelance",
+        "fechaInicio": "2021",
+        "fechaFin":"Actualidad",
+        "descripcion": "Desarrollo web de modo Freelance"
+    },
+    {
+        "nombreEmpresa": "Community Manager",
+        "fechaInicio":"2021",
+        "fechaFin":"Actualidad",
+        "descripcion": "Trabajos realizados de manera Freelance. Armado de estrategia de Marketing, puesta en marcha y estudio de estadísticas"
+    }
+    ],
+
+    "educacion": [{ 
+        "institucion": "Comercial N°11 - (C.A.B.A.)",
+        "fechaFin": "2009",
+        "titulo": "Perito mercantil con especialización en legislación impositiva"
+    },
+    {
+        "institucion": "ETER - (C.A.B.A.) ",
+        "fechaFin": "2013",
+        "titulo": "Técnico Superior en Periodismo"
+    },
+    {
+        "institucion": "Centro Universitario de Idiomas CUI UBA - (C.A.B.A.) ",
+        "fechaFin": "2012",
+        "titulo": "Inglés" 
+    },
+    {
+        "institucion": "Exámen Internacional TOEFL",
+        "fechaFin": "2017",
+        "titulo": "Inglés"
+    },
+    {
+        "institucion": "CoderHouse",
+        "fechaFin": "2022",
+        "titulo": "Ciberseguridad"
+    },
+    {
+        "institucion": "Argentina Programa - Etapas I, II",
+        "fechaFin": "2022",
+        "titulo": "Desarrollador Full Stack"
+    },
+    {
+        "institucion":"Google Activate",
+        "fechaFin":"2021",
+        "titulo": " Introducción al desarrollo web I, II"
+    },
+    {
+        "institucion":"Codo a codo",
+        "fechaFin":"2021",
+        "titulo": "  Desarrollo Web Full Stack con Java"
+    },
+    {
+        "institucion":"FreeCodeCamp",
+        "fechaFin":"2021",
+        "titulo": "Responsive Web Desing"
+    },
+    {
+        "institucion":"Silicon Misiones - PoloTIC",
+        "fechaFin":"2021",
+        "titulo": "Data Science for Analytics"
+    }
+    ],
+    "habilidades":[{
+        "habilidad": "HTML",
+        "porcentaje": "90%"
+    },
+    {
+        "habilidad":"CSS",
+        "porcentaje": "90%"
+    },
+    {
+        "habilidad": "Javascript",
+        "porcentaje": "70%"
+    },
+    {
+        "habilidad": "Java",
+        "porcentaje": "70%"
+    },
+    {
+        "habilidad": "Git/GitHub",
+        "porcentaje": "90%"
+    },
+    {
+        "habilidad": "Manejo de Office",
+        "porcentaje": "90%"
+    },
+    {
+        "habilidad": "Manejo de Redes Sociales",
+        "porcentaje": "90%"
+    },
+    {
+        "habilidad": "Inglés",
+        "porcentaje": "90%"
+    },
+    {
+        "habilidad": "Trabajo en equipo",
+        "porcentaje": "95%"
+    },
+    {
+        "habilidad": "Resolución de problemas",
+        "porcentaje": "95%"
+    },
+    {
+        "habilidad": "Capacidad de Organización",
+        "porcentaje": "95%"
+    },
+    {
+        "habilidad": "Comunicación",
+        "porcentaje": "95%"
+    }
+    ],
+    "proyectos":[{
+        "nombre": "Proyecto Integrador - Portfolio Web Fullstack",
+        "descripcion": "Trabajo final de Argentina Programa. Es una aplicación web con una arquitectura distribuida y contiene un diseño de interface (front end) que muestra la información personal, una base de datos que almacena los datos y también cuenta con las APIs necesarias para proveer a través de internet la información (back end).",
+        "fecha": "2022",
+        "link": "#"
+    },
+    {
+        "nombre": "Proyecto Integrador con Javascript",
+        "descripcion": "Trabajo práctico del programa Codo a Codo. Desarrollo de página web con formulario Javascript",
+        "fecha": "2021",
+        "link": "https://natmaggi.github.io/codoacodocomision2160/IntegradorJS/"
+    },
+    {
+        "nombre": "Más proyectos",
+        "descripcion": "En mi GitHub podrán encontrar más sobre mis trabajos realizados",
+        "fecha": "Actualidad",
+        "link": "https://github.com/NatMaggi"
+    }
+]
+
+
+}
+
+
