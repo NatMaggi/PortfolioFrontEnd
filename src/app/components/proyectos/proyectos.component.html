@@ -2,21 +2,13 @@
     <div class="row" id="proyectos">
       <h2>PROYECTOS</h2>
           <ul>
-            <li><h5>Proyecto Integrador - Portfolio Web Fullstack  | 2022</h5></li>
-            <p>Trabajo final de Argentina Programa. Es una aplicación web con una arquitectura distribuida y contiene un
-                diseño de interface (front end) que muestra la información personal, una base de datos que almacena los datos y también cuenta con
-                las APIs necesarias para proveer a través de internet la información (back end).</p>
-            <a href="">PORTFOLIO</a>
-          </ul>
-          <ul>
-            <li><h5>Proyecto Integrador con Javascript | 2021</h5></li>
-            <p>Trabajo práctico del programa Codo a Codo. Desarrollo de página web con formulario Javascript </p>
-            <a href=" https://natmaggi.github.io/codoacodocomision2160/IntegradorJS/"> VER </a>
-          </ul>
-          <ul>
-            <li><h5>Más proyectos</h5></li>
-              <p>En mi GitHub podrán encontrar más sobre mis trabajos realizados</p>
-              <a href=" https://github.com/NatMaggi"> VER</a>
+            <li *ngFor="let proyectos of proyectosList">
+              <div class="data-container">
+                <h5>{{proyectos.nombre}}  | {{proyectos.fecha}}</h5>
+                <p>{{proyectos.descripcion}}</p>
+                <a [href]="proyectos.link">PORTFOLIO</a>
+              </div>
+            </li>
           </ul>
       </div>
   </div>

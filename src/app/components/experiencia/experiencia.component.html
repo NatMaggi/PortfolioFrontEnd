@@ -1,23 +1,17 @@
 <!-- Experiencia -->
-
 <div class="cv">
   <div class="row" id="experiencia">
     <h2>EXPERIENCIA LABORAL</h2>
-        <ul>
-          <li><h5>Colegio de Psicólogos de Misiones| Octubre 2021 - Actualidad</h5></li>
-          <p>Encargada de redes sociales y comunicación. Armado y publicación de noticias en la web de la institución</p>
-        </ul>
-        <ul>
-          <li><h5>Desarrollo web | 2021 - Actualidad</h5></li>
-          <p>Desarrollo web de modo Freelance</p>
-        </ul>
-        <ul>
-          <li><h5>Community Manager | 2021 - Actualidad</h5></li>
-            <p>Trabajos realizados de manera Freelance. Armado de estrategia de Marketing, puesta en marcha y estudio de estadísticas</p>
+        <ul class="items-list">
+          <li *ngFor="let experiencia of experienciaList">
+            <div class="data-container">
+              <h5>{{experiencia.nombreEmpresa}} | {{experiencia.fechaInicio}} - {{experiencia.fechaFin}}</h5>
+              <p>{{experiencia.descripcion}}</p>
+           </div>
+          </li> 
         </ul>
     </div>
 </div>
-
 <div id="linea">
 </div>
 
@@ -25,38 +19,14 @@
 
 <div class="educacion">
   <div class="row" id="edu"> 
-      <h2>EDUCACIÓN</h2> 
-          <ul>
-            <li><h5>Nivel Medio </h5></li>
-            <li><p>Perito mercantil con especialización en legislación impositiva | Comercial N°11 - (C.A.B.A.) | 2009</p></li>
-          </ul>
-          <ul>
-            <li><h5>Nivel Terciario </h5></li>
-            <li><p>Técnico Superior en Periodismo | ETER - (C.A.B.A.) |  2013</p></li>
-          </ul>       
-          <ul>
-            <li><h5>Idiomas </h5></li>
-            <li><p>Inglés | Centro Universitario de Idiomas CUI UBA  - (C.A.B.A.) | 2012</p></li>
-            <li><p>Inglés | Exámen Internacional TOEFL | 2017</p></li>
-          </ul>    
-          <ul>
-            <li><h5>Cursos </h5></li>
-            <li><p>Ciberseguridad | CoderHouse | 2022 </p></li> 
-          </ul>
-          <ul>
-            <li><p>Desarrollador Full Stack | Argentina Programa - Etapas I, II | 2022</p></li>
-          </ul>
-          <ul>
-            <li><p>Introducción al desarrollo web I, II - HTML y CSS | Google Activate | 2021</p></li>
-          </ul> 
-          <ul>
-            <li><p>Desarrollo Web Full Stack con Java | Codo a codo | 2021</p></li> 
-          </ul>
-          <ul>
-            <li><p>Responsive Web Desing | FreeCodeCamp | 2021</p></li>    
-          </ul>
-          <ul>
-            <li><p>Data Science for Analytics | Silicon Misiones - PoloTIC | 2021</p></li>    
+      <h2>EDUCACIÓN</h2>
+          <ul class="items-list">
+            <li *ngFor="let educacion of educacionList">
+              <div class="data-container"> 
+                <h5>{{educacion.titulo}}</h5>
+                  <p>{{educacion.institucion}} | {{educacion.fechaFin}}</p>
+              </div>    
+            </li>
           </ul>
    </div>
 </div>

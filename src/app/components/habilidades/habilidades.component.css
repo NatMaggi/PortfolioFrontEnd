@@ -1,4 +1,3 @@
-
 #linea{
     padding: 20px;
     background-color:#fcb219;
@@ -7,14 +6,18 @@
     background-color:#fcb219;  
 }
 
-#habilidades{
+.container{
     background-color:#fcb219;
     color: black;
     font-family: 'Open Sans', sans-serif;
-    display: grid;
-    grid-template-columns: 25% 25% 25%;
-    column-gap: 30px;
     justify-content: center;
+
+
+}
+#habilidades{
+    justify-content: center;
+    margin-left: 20%;
+    
 }
 
 h2{
@@ -24,136 +27,17 @@ h2{
     font-family: 'Open Sans', sans-serif;
 }
 
-.details{
-    width: 100%;
-    display: flex;  
-    justify-content: space-between;
-    margin-bottom: 8px;
+ul li{
+    list-style-type: none;
+    float:left;
+    width: 40%; 
+    
 }
-.bar{
-    position: relative;
-    border: 2px solid #31bbec;
-    border-radius: 20px;
-    opacity: 70%;
-
+li{
+    padding-bottom: 10px;
 }
-.bar div{
-    position: relative;
-    width: 0;
-    height: 9px;
-    border-radius: 10px;
-    background-color: #31bbec;
-    opacity: 80%;
-}
-.skills:not(:last-child){
-    margin-bottom: 20px;
-}
-#html-bar{
-    animation: html-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes html-fill{
-    100%{
-        width: 90%;
-    }
-}
-
-#css-bar{
-    animation: css-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes css-fill{
-    100%{
-        width: 90%;
-    }
-}
-#javascript-bar{
-    animation: javascript-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes javascript-fill{
-    100%{
-        width: 70%;
-    }
-}
-#java-bar{
-    animation: java-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes java-fill{
-    100%{
-        width: 70%;
-    }
-}
-#git-bar{
-    animation: git-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes git-fill{
-    100%{
-        width: 90%;
-    }
-}
-#redes-bar{
-    animation: redes-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes redes-fill{
-    100%{
-        width: 90%;
-    }
-}
-#ingles-bar{
-    animation: ingles-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes ingles-fill{
-    100%{
-        width: 90%;
-    }
-}
-#office-bar{
-    animation: office-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes office-fill{
-    100%{
-        width: 90%;
-    }
-}
-#equipo-bar{
-    animation: equipo-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes equipo-fill{
-    100%{
-        width: 95%;
-    }
-}
-#resolucion-bar{
-    animation: resolucion-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes resolucion-fill{
-    100%{
-        width: 95%;
-    }
-}
-#organizacion-bar{
-    animation: organizacion-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes organizacion-fill{
-    100%{
-        width: 95%;
-    }
-}
-#comu-bar{
-    animation: comu-fill 5s forwards;
-    animation-iteration-count: infinite;
-}
-@keyframes comu-fill{
-    100%{
-        width: 95%;
-    }
+#btn-edit{
+    color:red;
+    justify-content: end;
+    padding:20px;
 }

@@ -82,58 +82,71 @@
     ],
     "habilidades":[{
         "habilidad": "HTML",
-        "porcentaje": "90%"
-    },
-    {
-        "habilidad":"CSS",
-        "porcentaje": "90%"
-    },
-    {
-        "habilidad": "Javascript",
-        "porcentaje": "70%"
-    },
-    {
-        "habilidad": "Java",
-        "porcentaje": "70%"
-    },
-    {
-        "habilidad": "Git/GitHub",
-        "porcentaje": "90%"
-    },
-    {
-        "habilidad": "Manejo de Office",
-        "porcentaje": "90%"
+        "url_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png"
+        
+
     },
     {
         "habilidad": "Manejo de Redes Sociales",
-        "porcentaje": "90%"
+        "url_img":"https://cliply.co/wp-content/uploads/2021/03/372103860_CHECK_MARK_400px.gif"
+
+    },
+
+    {
+        "habilidad":"CSS",
+        "url_img":"https://seeklogo.com/images/C/css-3-logo-023C1A7171-seeklogo.com.png"
+        
+
     },
     {
         "habilidad": "Inglés",
-        "porcentaje": "90%"
+        "url_img":"https://cliply.co/wp-content/uploads/2021/03/372103860_CHECK_MARK_400px.gif"
+
+    },
+    {
+        "habilidad": "Javascript",
+        "url_img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png"
     },
     {
         "habilidad": "Trabajo en equipo",
-        "porcentaje": "95%"
+        "url_img":"https://cliply.co/wp-content/uploads/2021/03/372103860_CHECK_MARK_400px.gif"
+    },
+    {
+        "habilidad": "Java",
+        "url_img":"https://cdn-icons-png.flaticon.com/512/226/226777.png"
+
     },
     {
         "habilidad": "Resolución de problemas",
-        "porcentaje": "95%"
+        "url_img":"https://cliply.co/wp-content/uploads/2021/03/372103860_CHECK_MARK_400px.gif"
+
+    },
+    {
+        "habilidad": "Git/GitHub",
+        "url_img":"https://cdn-icons-png.flaticon.com/512/25/25231.png"
+   
     },
     {
         "habilidad": "Capacidad de Organización",
-        "porcentaje": "95%"
+        "url_img":"https://cliply.co/wp-content/uploads/2021/03/372103860_CHECK_MARK_400px.gif"
+
+    },
+    {
+        "habilidad": "Manejo de Office",
+        "url_img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg/1728px-Microsoft_Office_logo_%282013%E2%80%932019%29.svg.png"
+
     },
     {
         "habilidad": "Comunicación",
-        "porcentaje": "95%"
+        "url_img":"https://cliply.co/wp-content/uploads/2021/03/372103860_CHECK_MARK_400px.gif"
+
     }
     ],
     "proyectos":[{
         "nombre": "Proyecto Integrador - Portfolio Web Fullstack",
         "descripcion": "Trabajo final de Argentina Programa. Es una aplicación web con una arquitectura distribuida y contiene un diseño de interface (front end) que muestra la información personal, una base de datos que almacena los datos y también cuenta con las APIs necesarias para proveer a través de internet la información (back end).",
         "fecha": "2022",
-        "link": "#"
+        "link": "https://localhost:4200/"
     },
     {
         "nombre": "Proyecto Integrador con Javascript",
