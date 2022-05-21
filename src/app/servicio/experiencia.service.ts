@@ -1,30 +1,31 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { experiencia } from "../model/experiencia.model";
+import { environment } from "src/environments/environment";
+import { Experiencia } from "../model/experiencia.model";
 
 
 @Injectable({
     providedIn: 'root'
   })
   export class ExperienciaService {
-    URL = 'http://localhost:8080/experiencia'
+    private apiServerUrl = environment.apiBaseUrl;
   
     constructor(private http: HttpClient) { }
 
-  public getAllExperiencia(): Observable<experiencia> {
-    return this.http.get<experiencia>('/experiencia/all');
+  public getAllExperiencia(): Observable<Experiencia[]> {
+    return this.http.get<Experiencia[]>(`${this.apiServerUrl}/experiencia/all`);
   }
 
-  public updateExperiencia(Experiencia: experiencia): Observable<experiencia> {
-    return this.http.put<experiencia>('/experiencia/update', Experiencia);
+  public updateExperiencia(experiencia: Experiencia): Observable<Experiencia> {
+    return this.http.put<Experiencia>(`${this.apiServerUrl}/experiencia/update`, experiencia);
   } 
 
-  public addExperiencia(Experiencia: experiencia): Observable<experiencia> {
-    return this.http.post<experiencia>('/experiencia/add', Experiencia);
+  public addExperiencia(experiencia: Experiencia): Observable<Experiencia> {
+    return this.http.post<Experiencia>(`${this.apiServerUrl}/experiencia/add`, experiencia);
   }
 
-  public deleteExperiencia(id: number): Observable<void> {
-    return this.http.delete<void>('/experiencia/delete');
+  public deleteExperiencia(experienciaId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/experiencia/delete/${experienciaId}`);
   }
 }

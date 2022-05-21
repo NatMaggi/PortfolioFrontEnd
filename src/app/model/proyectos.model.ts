@@ -1,4 +1,4 @@
-export interface proyectos {
+export interface Proyectos {
     id: number;
     nombre: string;
     descripcion: string;

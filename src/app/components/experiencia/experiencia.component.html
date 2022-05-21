@@ -1,32 +1,15 @@
-<!-- Experiencia -->
+<div *ngFor="let experiencia of experiencias">
 <div class="cv">
   <div class="row" id="experiencia">
     <h2>EXPERIENCIA LABORAL</h2>
         <ul class="items-list">
-          <li *ngFor="let experiencia of experienciaList">
             <div class="data-container">
               <h5>{{experiencia.nombreEmpresa}} | {{experiencia.fechaInicio}} - {{experiencia.fechaFin}}</h5>
               <p>{{experiencia.descripcion}}</p>
            </div>
-          </li> 
         </ul>
     </div>
 </div>
 <div id="linea">
 </div>
-
-<!-- Educación -->
-
-<div class="educacion">
-  <div class="row" id="edu"> 
-      <h2>EDUCACIÓN</h2>
-          <ul class="items-list">
-            <li *ngFor="let educacion of educacionList">
-              <div class="data-container"> 
-                <h5>{{educacion.titulo}}</h5>
-                  <p>{{educacion.institucion}} | {{educacion.fechaFin}}</p>
-              </div>    
-            </li>
-          </ul>
-   </div>
 </div>

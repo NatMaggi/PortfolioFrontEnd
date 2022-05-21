@@ -1,4 +1,4 @@
-export interface experiencia {
+export interface Experiencia {
     id: number;
     nombreEmpresa: String;
     fechaInicio: String;
