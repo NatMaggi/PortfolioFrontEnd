@@ -5,7 +5,8 @@ import { environment } from "src/environments/environment";
 import { Educacion } from "../model/educacion.model";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
+  
   })
   export class EducacionService {
     private apiServerUrl = environment.apiBaseUrl;
@@ -24,7 +25,7 @@ import { Educacion } from "../model/educacion.model";
     return this.http.post<Educacion>(`${this.apiServerUrl}/experiencia/add`, educacion);
   }
 
-  public deleteEducacion(educacionId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/experiencia/delete/${educacionId}`);
+  public deleteEducacion(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/experiencia/delete/${id}`);
   }
 }

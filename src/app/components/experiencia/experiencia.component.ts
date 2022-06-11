@@ -71,5 +71,26 @@ export class ExperienciaComponent implements OnInit {
   });
   
   }
+
+  public onOpenModal(experiencia: Experiencia, mode: string): void{
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addExperienciaModal');
+    }
+    if (mode === 'edit') {
+      this.editExperiencia = experiencia;
+      button.setAttribute('data-target', '#updateExperienciaModal');
+    }
+    if (mode === 'delete') {
+      this.deleteExperiencia = experiencia;
+      button.setAttribute('data-target', '#deleteExperienciaModal');
+    }
+    container?.appendChild(button);
+    button.click();
+  }
 }
 

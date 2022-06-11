@@ -1,14 +1,104 @@
-<div class="proyectos">
+
+<div class="proyectos" id="main-container">
     <div class="row" id="proyectos">
-      <h2>PROYECTOS</h2>
+      <h2>PROYECTOS <a (click)="onOpenModal(null!,'add')" class="btn btn-success tooltips" data-placement="top" data-original-title="Add"><i class="fa fa-plus"></i> </a></h2>
           <ul>
-            <li *ngFor="let proyectos of proyectosList">
+            <li>
               <div class="data-container">
-                <h5>{{proyectos.nombre}}  | {{proyectos.fecha}}</h5>
-                <p>{{proyectos.descripcion}}</p>
-                <a [href]="proyectos.link">PORTFOLIO</a>
+                <div *ngFor="let proyecto of proyectos">
+                <h5>{{proyecto.nombre}}  | {{proyecto.fecha}}</h5>
+                <p>{{proyecto.descripcion}}</p>
+                <div class="float-right btn-group btn-group-sm">
+                  <a (click)="onOpenModal(proyecto,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                  <a (click)="onOpenModal(proyecto, 'delete')" class="btn btn-danger tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+               </div>
+                </div>
               </div>
             </li>
           </ul>
+      
+  </div>
+</div>
+
+
+<!-- Add Modal  -->
+<div class="modal fade" id="addProyectosModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addPersonaModal" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Agregar Proyectos</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form #addForm="ngForm" (ngSubmit)="onAddProyectos(addForm)">
+                  <label for="nombre">Nombre</label><br>
+                  <input ngModel type="text" name="nombre" class="form-control">
+                  <label for="fecha">Fecha</label>
+                  <input  type="text" name="fecha" ngModel class="form-control">
+                  <label for="descripcion">Descripción</label>
+                  <input  type="text" name="descripcion" ngModel class="form-control">
+                  <div class="modal-footer">
+                      <button  type="button" id="add-proyectos-modal" class="btn" data-dismiss="modal">Cancelar</button>
+                      <button [disabled]="addForm.invalid" type="submit" class="btn" data-dismiss="modal">Agregar</button>
+                  </div>
+              </form>
+          </div>
+          
       </div>
   </div>
+</div>
+
+<!-- Update Modal  -->
+<div class="modal fade" id="updateProyectosModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form #editForm="ngForm">
+                <label for="nombre">Nombre</label><br>
+                <input ngModel="{{editProyectos?.nombre}}"  type="text" name="nombre" class="form-control">
+                <label for="fecha">Fecha</label>
+                <input ngModel="{{editProyectos?.fecha}}"  type="text" name="fecha" ngModel class="form-control">
+                <label for="descripcion">Descripción</label>
+                <input ngModel="{{editProyectos?.descripcion}}"  type="text" name="descripcion" ngModel class="form-control">
+                <input type="hidden" name="id" ngModel="{{editProyectos?.id}} ">
+                <div class="modal-footer">
+                    <button  type="button" id="add-proyectos-modal" class="btn" data-dismiss="modal">Cancelar</button>
+                    <button (click)="onUpdateProyectos(editForm.value)" type="submit" class="btn" data-dismiss="modal">Agregar</button>
+                </div>
+            </form>
+          </div>   
+    
+      </div>
+  </div>
+</div>
+
+<!-- DeleteModal -->
+<div class="modal fade" id="deleteProyectosModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <p>Esta acción eliminará {{deleteProyectos?.nombre}} . ¿Desea continuar?</p>
+          </div>
+          <div class="modal-footer borrar">
+          <button type="button" class="btn" data-dismiss="modal">No</button>
+          <button (click)="onDeleteProyectos(deleteProyectos.id)" type="button" class="btn" data-dismiss="modal">Sí</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+

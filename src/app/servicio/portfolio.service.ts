@@ -7,25 +7,25 @@ import { Persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PortfolioService {
-  private apiServeUrl = environment.apiBaseUrl;
+  private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http:HttpClient) { }
 
   
   public getAllPersonas():Observable<Persona[]>{
-    return this.http.get<Persona[]>('${this.apiServerUrl}/persona/all');
+    return this.http.get<Persona[]>(`${this.apiServerUrl}/persona/all`);
     
   }
   public addPersona(persona: Persona):Observable<Persona>{
-    return this.http.post<Persona>('${this.apiServerUrl}/persona/add', persona);
+    return this.http.post<Persona>(`${this.apiServerUrl}/persona/add`, persona);
     
   }
   public updatePersona(persona: Persona):Observable<Persona>{
-    return this.http.put<Persona>('${this.apiServerUrl}/persona/update', persona);
+    return this.http.put<Persona>(`${this.apiServerUrl}/persona/update`, persona);
     
   }
-  public deletePersona(personaId: number):Observable<void>{
-    return this.http.delete<void>('${this.apiServerUrl}/persona/delete/${personaId}');
+  public deletePersona(id: number):Observable<void>{
+    return this.http.delete<void>(`${this.apiServerUrl}/persona/delete/${id}`);
     
   }
 }

@@ -1,16 +1,21 @@
-.cv, .educacion{
+.cv{
     background-color:black;
     color: white;
     display:absolute;
-    padding: 20px;
     font-family: 'Open Sans', sans-serif;
 }
+.flex-container {
+    display:absolute;
+    background-color: black;
+    font-family: 'Open Sans', sans-serif;
 
-#experiencia, #edu{
+    }
+#experiencia{
     margin-left: 20px;
 }
+
 ul{
-    list-style-type: none;
+    list-style: none;
 }
 
 #linea{
@@ -18,8 +23,12 @@ ul{
     background-color:#fcb219;
 }
 h2{
-    padding: 5px;
     font-weight: bold;
+    background-color:black;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 20px;
+    padding: 20px;
 }
 p{
     font-style: oblique;
@@ -27,7 +36,4 @@ p{
 }
 h5{
     font-weight: bold;
-}
-.progress{
-    margin-left: 0 !important;
 }

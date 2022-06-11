@@ -2,7 +2,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Persona } from 'src/app/model/persona.model';
-
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
 @Component({
@@ -30,8 +29,9 @@ export class AcercaComponent implements OnInit {
       }
   });
   }
+
   public onAddPersona(addForm: NgForm):void {
-    document.getElementById('add-persona-modal')?.click();
+    document.getElementById('add-persona-modal').click();
     this.portfolioService.addPersona(addForm.value).subscribe({
       next: (response: Persona) => {
         console.log(response);
@@ -42,8 +42,7 @@ export class AcercaComponent implements OnInit {
         alert(error.message);
         addForm.reset();
       }
-  });
-    
+  });   
   }
 
   public onUpdatePersona(persona: Persona):void {
@@ -51,6 +50,7 @@ export class AcercaComponent implements OnInit {
       next: (response: Persona) => {
         console.log(response);
         this.getPersonas();
+        
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);
@@ -63,13 +63,35 @@ export class AcercaComponent implements OnInit {
     this.portfolioService.deletePersona(id).subscribe({
     next: (response: void) => {
       console.log(response);
-      this.getPersonas(); 
+      this.getPersonas();
+      
     },
     error: (error: HttpErrorResponse) => {
       alert(error.message);
     }
   });
   
+  }
+
+  public onOpenModal(persona: Persona, mode: string): void{
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addPersonaModal');
+    }
+    if (mode === 'edit') {
+      this.editPersona = persona;
+      button.setAttribute('data-target', '#updatePersonaModal');
+    }
+    if (mode === 'delete') {
+      this.deletePersona = persona;
+      button.setAttribute('data-target', '#deletePersonaModal');
+    }
+    container?.appendChild(button);
+    button.click();
   }
 }
 

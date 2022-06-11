@@ -1,25 +1,132 @@
-<div *ngFor="let persona of personas">
-<div class="flex-container">
-  <i class="fa-solid fa-square-pen"></i>
- <div id="acerca" class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="../../../assets/nat.png" class="img-fluid" id="perfil" alt="Natalia Maggi">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body"> 
-          <div class="btn-edit">
-           <a href="#" class="btn-right"> <i class="fa-solid fa-square-pen"></i></a>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<div class="flex-container" id="main-container">
+  <div *ngFor="let persona of personas">
+     <div id="acerca" class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+          <img src= {{persona.url_foto}} class="img-fluid" id="perfil" alt="Natalia Maggi">
           </div>
-          <h5 class="card-title">{{persona.nombre}} {{persona.apellido}}</h5>
-          <p class="card-text">{{persona.posicion}}.</p>
-          <p class="card-text">{{persona.sobre_mi}}</p>
-          <p>{{persona.edad}}</p>
-          <p>{{persona.telefono}}</p>
-          <p>{{persona.correo}}</p>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="float-right btn-group btn-group-sm">
+                 <a (click)="onOpenModal(persona, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                 <a (click)="onOpenModal(persona, 'delete')" class="btn btn-danger tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+              </div>
+           </div>
+            <div class="card-body"> 
+              <h5 class="card-title">{{persona.nombre}} {{persona.apellido}}</h5>
+              <p class="card-text">{{persona.posicion}}.</p>
+              <p class="card-text">{{persona.sobre_mi}}</p>
+              <p>{{persona.edad}}</p>
+              <p>{{persona.telefono}}</p>
+              <p>{{persona.correo}}</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+
+</div>
+</div>
+
+
+<!-- Add Modal  -->
+<div class="modal fade" id="addPersonaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addPersonaModal" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Agregar Persona</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form #addForm="ngForm" (ngSubmit)="onAddPersona(addForm)">
+                  <label for="nombre">Nombre</label><br>
+                  <input ngModel type="text" name="nombre"  class="form-control">
+                  <label for="apellido">Apellido</label>
+                  <input  type="text" name="apellido" ngModel class="form-control">
+                  <label for="posicion">Posición</label><br>
+                  <input ngModel type="text" ngModel name="posicion"  class="form-control">
+                  <label for="sobremi">Sobre Mí</label><br>
+                  <input ngModel type="text" ngModel name="sobremi"  class="form-control">
+                  <label for="edad">Edad</label><br>
+                  <input ngModel type="text" ngModel name="edad"  class="form-control">
+                  <label for="telefono">Teléfono</label><br>
+                  <input ngModel type="text" ngModel name="telefono"  class="form-control">
+                  <label for="correo">Correo Electrónico</label><br>
+                  <input ngModel type="text" ngModel name="correo"  class="form-control">
+                  <label for="url_foto">Foto</label><br>
+                  <input ngModel type="text" ngModel name="url_foto"  class="form-control"><br>
+                  <div class="modal-footer">
+                      <button  type="button" id="add-persona-modal" class="btn" data-dismiss="modal">Cancelar</button>
+                      <button [disabled]="addForm.invalid" type="submit" class="btn" data-dismiss="modal">Agregar</button>
+                  </div>
+              </form>
+          </div>
+          
+      </div>
   </div>
 </div>
+
+<!-- Update Modal  -->
+<div class="modal fade" id="updatePersonaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form #editForm="ngForm">
+                <label for="nombre">Nombre</label><br>
+                <input ngModel="{{editPersona?.nombre}}" type="text" name="nombre"  class="form-control">
+                <label for="apellido">Apellido</label>
+                <input ngModel="{{editPersona?.apellido}}" type="text" name="apellido" ngModel class="form-control">
+                <label for="posicion">Posición</label><br>
+                <input ngModel="{{editPersona?.posicion}}" type="text" ngModel name="posicion"  class="form-control">
+                <label for="sobre_mi">Sobre Mí</label><br>
+                <input ngModel="{{editPersona?.sobre_mi}}" type="text" ngModel name="sobre_mi"  class="form-control">
+                <label for="edad">Edad</label><br>
+                <input ngModel="{{editPersona?.edad}}" type="text" ngModel name="edad"  class="form-control">
+                <label for="telefono">Teléfono</label><br>
+                <input ngModel="{{editPersona?.telefono}}" type="text" ngModel name="telefono"  class="form-control">
+                <label for="correo">Correo Electrónico</label><br>
+                <input ngModel="{{editPersona?.correo}}" type="text" ngModel name="correo"  class="form-control">
+                <label for="url_foto">Foto</label><br>
+                <input ngModel="{{editPersona?.url_foto}}" type="text" ngModel name="url_foto"  class="form-control"><br>
+                <input type="hidden" name="id" ngModel="{{editPersona?.id}} ">
+                <div class="modal-footer">
+                    <button  type="button" id="update-persona-modal" class="btn" data-dismiss="modal">Cancelar</button>
+                    <button (click)="onUpdatePersona(editForm.value)" type="submit" class="btn" data-dismiss="modal">Agregar</button>
+                </div>
+            </form>
+          </div>   
+          
+          
+          
+      </div>
+  </div>
+</div>
+
+<!-- DeleteModal -->
+<div class="modal fade" id="deletePersonaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <p>Esta acción eliminará {{deletePersona?.nombre}} . ¿Desea continuar?</p>
+          </div>
+          <div class="modal-footer borrar">
+          <button type="button" class="btn" data-dismiss="modal">No</button>
+          <button (click)="onDeletePersona(deletePersona.id)" type="button" class="btn" data-dismiss="modal">Sí</button>
+          </div>
+      </div>
+  </div>
 </div>

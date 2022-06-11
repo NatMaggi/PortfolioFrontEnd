@@ -3,37 +3,51 @@
     justify-content: center;
     background-color: #fcb219;
     font-family: 'Open Sans', sans-serif;
+    padding: 30px;
+    
     }
+
 #acerca{
-    margin-top: 10px;
+
     background-color: #fcb219;
     border-style: none;
-}
-  img{
-    margin-top: 10px;
+    }
+    #perfil{
     width: auto;
     height: auto;
-  }
-h5{
+    }
+    h5{
     font-weight: bold;
-}
-
-  @media (min-width: 576px){
+    }
+    
+    @media (min-width: 576px){
     #perfil{
         width: 100%;
-
+    
     }
-}
-@media (max-width: 575px){
+    }
+    @media (max-width: 575px){
     #perfil{
         width: 30%;
         margin-left: 150px;
      
     }
+    
+    }
+    
+    @media (min-width: 576px){
+    #banner{
+        width: 100%;
+    
+    }
+    }
+    @media (max-width: 575px){
+    #banner{
+    width: auto;
+    height: 50%;
+     
+    }
+    
+    }
 
-}
-
-.btn-edit{
-    position: absolute;
-}
 

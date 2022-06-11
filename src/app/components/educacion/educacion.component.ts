@@ -70,4 +70,25 @@ export class EducacionComponent implements OnInit {
   });
   
   }
+  
+  public onOpenModal(educacion: Educacion, mode: string): void{
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addEducacionModal');
+    }
+    if (mode === 'edit') {
+      this.editEducacion = educacion;
+      button.setAttribute('data-target', '#updateEducacionModal');
+    }
+    if (mode === 'delete') {
+      this.deleteEducacion = educacion;
+      button.setAttribute('data-target', '#deleteEducacionModal');
+    }
+    container?.appendChild(button);
+    button.click();
+  }
 }
