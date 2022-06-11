@@ -10,7 +10,7 @@ import { EducacionService } from 'src/app/servicio/educacion.service';
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
-  public educaciones: Educacion[];
+  public educacion: Educacion[];
   public editEducacion: Educacion;
   public deleteEducacion: Educacion;
 
@@ -22,7 +22,7 @@ export class EducacionComponent implements OnInit {
   public getAllEducacion(): void {
     this.educacionService.getAllEducacion().subscribe({
       next: (response: Educacion[]) => {
-        this.educaciones = response;
+        this.educacion = response;
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);

@@ -24,7 +24,7 @@ import { Habilidades } from "../model/habilidades.model";
     return this.http.post<Habilidades>(`${this.apiServerUrl}/habilidades/add`, habilidades);
   }
 
-  public deleteHabilidades(habilidadesId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/experiencia/delete/${habilidadesId}`);
+  public deleteHabilidades(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/habilidades/delete/${id}`);
   }
 }

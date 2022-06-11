@@ -25,7 +25,7 @@ import { Experiencia } from "../model/experiencia.model";
     return this.http.post<Experiencia>(`${this.apiServerUrl}/experiencia/add`, experiencia);
   }
 
-  public deleteExperiencia(experienciaId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/experiencia/delete/${experienciaId}`);
+  public deleteExperiencia(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/experiencia/delete/${id}`);
   }
 }

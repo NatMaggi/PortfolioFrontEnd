@@ -24,7 +24,7 @@ import { Proyectos } from "../model/proyectos.model";
     return this.http.post<Proyectos>(`${this.apiServerUrl}/proyectos/add`, proyectos);
   }
 
-  public deleteProyectos(proyectosId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/proyectos/delete/${proyectosId}`);
+  public deleteProyectos(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/proyectos/delete/${id}`);
   }
 }

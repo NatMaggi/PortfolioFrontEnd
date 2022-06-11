@@ -22,10 +22,10 @@ import { Educacion } from "../model/educacion.model";
   } 
 
   public addEducacion(educacion: Educacion): Observable<Educacion> {
-    return this.http.post<Educacion>(`${this.apiServerUrl}/experiencia/add`, educacion);
+    return this.http.post<Educacion>(`${this.apiServerUrl}/educacion/add`, educacion);
   }
 
   public deleteEducacion(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/experiencia/delete/${id}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/educacion/delete/${id}`);
   }
 }
