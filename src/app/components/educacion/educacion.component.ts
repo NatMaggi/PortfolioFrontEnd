@@ -11,8 +11,8 @@ import { EducacionService } from 'src/app/servicio/educacion.service';
 })
 export class EducacionComponent implements OnInit {
   public educacion: Educacion[];
-  public editEducacion: Educacion;
-  public deleteEducacion: Educacion;
+  public editEducacion: Educacion | undefined;
+  public deleteEducacion: Educacion | undefined;
 
   constructor(private educacionService: EducacionService) { }
 
@@ -30,7 +30,7 @@ export class EducacionComponent implements OnInit {
     });
   }
   public onAddEducacion(addForm: NgForm):void {
-    document.getElementById('add-educacion-modal')?.click();
+    document.getElementById('add-educacion-modal').click();
     this.educacionService.addEducacion(addForm.value).subscribe({
       next: (response: Educacion) => {
         console.log(response);

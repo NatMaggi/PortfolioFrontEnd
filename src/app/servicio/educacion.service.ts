@@ -16,13 +16,16 @@ import { Educacion } from "../model/educacion.model";
   public getAllEducacion(): Observable<Educacion[]> {
     return this.http.get<Educacion[]>(`${this.apiServerUrl}/educacion/all`);
   }
+  public getEducacionById(idEducacion: number):Observable<Educacion> {
+    return this.http.get<Educacion>(this.apiServerUrl + `educación/add${idEducacion}`)
+  }
 
   public updateEducacion(educacion: Educacion): Observable<Educacion> {
     return this.http.put<Educacion>(`${this.apiServerUrl}/educacion/update`, educacion);
   } 
 
-  public addEducacion(educacion: Educacion): Observable<Educacion> {
-    return this.http.post<Educacion>(`${this.apiServerUrl}/educacion/add`, educacion);
+  public addEducacion(educacion: Educacion): Observable<any> {
+    return this.http.post<any>(`${this.apiServerUrl}/educacion/add`, educacion);
   }
 
   public deleteEducacion(id: number): Observable<void> {
