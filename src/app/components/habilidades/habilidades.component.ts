@@ -12,8 +12,8 @@ import { HabilidadesService } from 'src/app/servicio/habilidades.service';
 })
 export class HabilidadesComponent implements OnInit {
   public habilidades: Habilidades[];
-  public editHabilidades: Habilidades;
-  public deleteHabilidades: Habilidades;
+  public editHabilidades: Habilidades  | undefined;
+  public deleteHabilidades: Habilidades | undefined;
 
   constructor(private habilidadesService: HabilidadesService) { }
 

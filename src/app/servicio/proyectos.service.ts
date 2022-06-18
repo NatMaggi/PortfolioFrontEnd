@@ -15,13 +15,15 @@ import { Proyectos } from "../model/proyectos.model";
   public getAllProyectos(): Observable<Proyectos[]> {
     return this.http.get<Proyectos[]>(`${this.apiServerUrl}/proyectos/all`);
   }
-
+  public getProyectosById(idProyectos: number):Observable<Proyectos> {
+    return this.http.get<Proyectos>(this.apiServerUrl + `proyectos/add${idProyectos}`)
+  }
   public updateProyectos(proyectos: Proyectos): Observable<Proyectos> {
     return this.http.put<Proyectos>(`${this.apiServerUrl}/proyectos/update`, proyectos);
   } 
 
-  public addProyectos(proyectos: Proyectos): Observable<Proyectos> {
-    return this.http.post<Proyectos>(`${this.apiServerUrl}/proyectos/add`, proyectos);
+  public addProyectos(proyectos: Proyectos): Observable<any> {
+    return this.http.post<any>(`${this.apiServerUrl}/proyectos/add`, proyectos);
   }
 
   public deleteProyectos(id: number): Observable<void> {

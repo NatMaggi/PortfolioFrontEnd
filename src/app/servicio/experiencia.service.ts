@@ -17,12 +17,16 @@ import { Experiencia } from "../model/experiencia.model";
     return this.http.get<Experiencia[]>(`${this.apiServerUrl}/experiencia/all`);
   }
 
+  public getExperienciaById(idExperiencia: number):Observable<Experiencia> {
+    return this.http.get<Experiencia>(this.apiServerUrl + `experiencia/add${idExperiencia}`)
+  }
+
   public updateExperiencia(experiencia: Experiencia): Observable<Experiencia> {
     return this.http.put<Experiencia>(`${this.apiServerUrl}/experiencia/update`, experiencia);
   } 
 
-  public addExperiencia(experiencia: Experiencia): Observable<Experiencia> {
-    return this.http.post<Experiencia>(`${this.apiServerUrl}/experiencia/add`, experiencia);
+  public addExperiencia(experiencia: Experiencia): Observable<any> {
+    return this.http.post<any>(`${this.apiServerUrl}/experiencia/add`, experiencia);
   }
 
   public deleteExperiencia(id: number): Observable<void> {

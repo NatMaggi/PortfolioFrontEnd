@@ -15,13 +15,16 @@ import { Habilidades } from "../model/habilidades.model";
   public getAllHabilidades(): Observable<Habilidades[]> {
     return this.http.get<Habilidades[]>(`${this.apiServerUrl}/habilidades/all`);
   }
+  public getHabilidadesById(idHabilidades: number):Observable<Habilidades> {
+    return this.http.get<Habilidades>(this.apiServerUrl + `habilidades/add${idHabilidades}`)
+  }
 
   public updateHabilidades(habilidades: Habilidades): Observable<Habilidades> {
     return this.http.put<Habilidades>(`${this.apiServerUrl}/habilidades/update`, habilidades);
   } 
 
-  public addHabilidades(habilidades: Habilidades): Observable<Habilidades> {
-    return this.http.post<Habilidades>(`${this.apiServerUrl}/habilidades/add`, habilidades);
+  public addHabilidades(habilidades: Habilidades): Observable<any> {
+    return this.http.post<any>(`${this.apiServerUrl}/habilidades/add`, habilidades);
   }
 
   public deleteHabilidades(id: number): Observable<void> {

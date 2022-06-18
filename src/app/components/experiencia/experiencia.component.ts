@@ -11,9 +11,9 @@ import { ExperienciaService } from 'src/app/servicio/experiencia.service';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent implements OnInit {
-  public experiencias: Experiencia[];
-  public editExperiencia: Experiencia;
-  public deleteExperiencia: Experiencia;
+  public experiencia: Experiencia[];
+  public editExperiencia: Experiencia | undefined;
+  public deleteExperiencia: Experiencia | undefined;
 
   constructor(private experienciaService: ExperienciaService) { }
 
@@ -23,7 +23,7 @@ export class ExperienciaComponent implements OnInit {
   public getAllExperiencia(): void {
     this.experienciaService.getAllExperiencia().subscribe({
       next: (response: Experiencia[]) => {
-        this.experiencias = response;
+        this.experiencia = response;
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);
@@ -46,8 +46,8 @@ export class ExperienciaComponent implements OnInit {
     
   }
 
-  public onUpdateExperiencia(persona: Experiencia):void {
-      this.experienciaService.updateExperiencia(persona).subscribe({
+  public onUpdateExperiencia(experiencia: Experiencia):void {
+      this.experienciaService.updateExperiencia(experiencia).subscribe({
       next: (response: Experiencia) => {
         console.log(response);
         this.getAllExperiencia();

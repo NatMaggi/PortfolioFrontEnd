@@ -12,8 +12,8 @@ import { ProyectosService } from 'src/app/servicio/proyectos.service';
 })
 export class ProyectosComponent implements OnInit {
   public proyectos: Proyectos[];
-  public editProyectos: Proyectos;
-  public deleteProyectos: Proyectos;
+  public editProyectos: Proyectos | undefined;
+  public deleteProyectos: Proyectos  | undefined;
 
   constructor(private proyectosService: ProyectosService) { }
 
