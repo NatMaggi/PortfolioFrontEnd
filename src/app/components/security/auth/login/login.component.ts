@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserLogin } from '../security/entity/userLogin';
-import { AuthService } from '../security/service/auth.service';
-import { TokenService } from '../security/service/token.service';
+import { UserLogin } from '../../entity/userLogin';
+import { AuthService } from '../../service/auth.service';
+import { TokenService } from '../../service/token.service';
+
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   isLogged = false;
   isLoginFail = false;
@@ -18,32 +19,22 @@ export class HeaderComponent implements OnInit {
   password: string;
   roles: string[] = [];
   errorMessage: string
-  
 
-  constructor(private tokenService: TokenService,
+
+  constructor(
+    private tokenService: TokenService,
     private authService: AuthService,
     private router: Router
-    ) { }
+  ) {
+    
+  }
 
-  ngOnInit(): void {
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-    }else {
-      this.isLogged = false;
-    }
-
+  ngOnInit() {
     if(this.tokenService.getToken()){
       this.isLogged = true;
       this.isLoginFail = false;
       this.roles = this.tokenService.getAuthorities();
     }
-    
-  }
-
-  onLogOut(): void {
-    this.tokenService.logOut();
-    window.location.reload();
-    
   }
 
   onLogin(): void {
@@ -58,15 +49,13 @@ export class HeaderComponent implements OnInit {
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
         this.router.navigate(['/']);
-        window.location.reload();
       },
       error: (err) => {
         this.isLogged = false;
         this.isLoginFail = true;
-        this.errorMessage = err.error.error;
-        console.log(err.error.error);
-        
-
+        console.log(err);
+        /*this.errorMessage = err.error.message;
+        console.log(err.error.message);*/
       }
     })
   }

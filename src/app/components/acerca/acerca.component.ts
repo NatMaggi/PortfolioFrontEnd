@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Persona } from 'src/app/model/persona.model';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
+import { TokenService } from '../security/service/token.service';
 
 @Component({
   selector: 'app-acerca',
@@ -13,12 +14,24 @@ export class AcercaComponent implements OnInit {
   public personas: Persona[];
   public editPersona: Persona;
   public deletePersona: Persona;
+  roles: string[];
+  isAdmin: boolean = false;
+  
+  
+  constructor(private portfolioService: PortfolioService, 
+    private tokenService: TokenService
+    ) {}
 
-  constructor(private portfolioService: PortfolioService) {}
-
-  ngOnInit() {
-    this.getPersonas();
-       }
+    ngOnInit() {
+      this.getPersonas();
+      this.roles = this.tokenService.getAuthorities();
+      this.roles.forEach( role => {
+        if(role === 'ROLE_ADMIN') {
+          this.isAdmin = true;
+        }
+      })
+    }
+  
   public getPersonas(): void {
     this.portfolioService.getAllPersonas().subscribe({
       next: (response:Persona[]) => {

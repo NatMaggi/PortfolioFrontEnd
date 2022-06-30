@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Educacion } from 'src/app/model/educacion.model';
 import { EducacionService } from 'src/app/servicio/educacion.service';
+import { TokenService } from '../security/service/token.service';
 
 @Component({
   selector: 'app-educacion',
@@ -13,12 +14,22 @@ export class EducacionComponent implements OnInit {
   public educacion: Educacion[];
   public editEducacion: Educacion | undefined;
   public deleteEducacion: Educacion | undefined;
+  roles: string[];
+  isAdmin: boolean = false;
 
-  constructor(private educacionService: EducacionService) { }
+  constructor(private educacionService: EducacionService,
+  private tokenService: TokenService
+  ) { }
 
-  ngOnInit() {
-    this.getAllEducacion();
-  }
+ngOnInit() {
+  this.getAllEducacion();
+  this.roles = this.tokenService.getAuthorities();
+  this.roles.forEach( role => {
+    if(role === 'ROLE_ADMIN') {
+      this.isAdmin = true;
+    }
+  })
+}
   public getAllEducacion(): void {
     this.educacionService.getAllEducacion().subscribe({
       next: (response: Educacion[]) => {
