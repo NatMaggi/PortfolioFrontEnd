@@ -1,11 +1,11 @@
 <div class="flex-container" id="main-container">
-  <h2>EDUCACIÓN <a (click)="onOpenModal(null,'add')" *ngIf="isAdmin" class="btn btn-success tooltips" data-placement="top" data-original-title="Add"><i class="fa fa-plus"></i> </a> </h2>
+  <h2>EDUCACIÓN <a (click)="onOpenModal(null,'add')" *ngIf="isUserLogged" class="btn btn-success tooltips" data-placement="top" data-original-title="Add"><i class="fa fa-plus"></i> </a> </h2>
   <div *ngFor="let edu of educacion">
     <div class="educacion">
       <div class="row" id="edu"> 
         <div class="data-container"> 
           <h5>{{edu.titulo}}
-            <div class="float-right btn-group btn-group-sm" *ngIf="isAdmin">
+            <div class="float-right btn-group btn-group-sm" *ngIf="isUserLogged">
               <a (click)="onOpenModal(edu,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
               <a (click)="onOpenModal(edu, 'delete')" class="btn btn-danger tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
            </div>

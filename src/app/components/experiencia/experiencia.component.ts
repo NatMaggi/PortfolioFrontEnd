@@ -2,7 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Experiencia } from 'src/app/model/experiencia.model';
+import { AuthService } from 'src/app/servicio/auth.service';
 import { ExperienciaService } from 'src/app/servicio/experiencia.service';
+
 
 
 @Component({
@@ -14,12 +16,16 @@ export class ExperienciaComponent implements OnInit {
   public experiencia: Experiencia[];
   public editExperiencia: Experiencia | undefined;
   public deleteExperiencia: Experiencia | undefined;
+  public isUserLogged: Boolean = false;
 
-  constructor(private experienciaService: ExperienciaService) { }
+  constructor(private experienciaService: ExperienciaService,
+    private authService: AuthService) {}
 
-  ngOnInit() {
-    this.getAllExperiencia();
-  }
+    ngOnInit() {
+      this.isUserLogged = this.authService.isUserLogged();
+      this.getAllExperiencia();
+    }
+
   public getAllExperiencia(): void {
     this.experienciaService.getAllExperiencia().subscribe({
       next: (response: Experiencia[]) => {

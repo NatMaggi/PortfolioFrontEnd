@@ -2,8 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Educacion } from 'src/app/model/educacion.model';
+import { AuthService } from 'src/app/servicio/auth.service';
 import { EducacionService } from 'src/app/servicio/educacion.service';
-import { TokenService } from '../security/service/token.service';
+
 
 @Component({
   selector: 'app-educacion',
@@ -14,22 +15,16 @@ export class EducacionComponent implements OnInit {
   public educacion: Educacion[];
   public editEducacion: Educacion | undefined;
   public deleteEducacion: Educacion | undefined;
-  roles: string[];
-  isAdmin: boolean = false;
+  public isUserLogged: Boolean = false;
 
   constructor(private educacionService: EducacionService,
-  private tokenService: TokenService
-  ) { }
+    private authService: AuthService) {}
 
-ngOnInit() {
-  this.getAllEducacion();
-  this.roles = this.tokenService.getAuthorities();
-  this.roles.forEach( role => {
-    if(role === 'ROLE_ADMIN') {
-      this.isAdmin = true;
+    ngOnInit(): any {
+      this.isUserLogged = this.authService.isUserLogged();
+      this.getAllEducacion();
     }
-  })
-}
+
   public getAllEducacion(): void {
     this.educacionService.getAllEducacion().subscribe({
       next: (response: Educacion[]) => {

@@ -4,15 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { LoginComponent } from './components/login/login.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
+import { EducacionComponent } from './components/educacion/educacion.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
-import { HeaderComponent } from './components/header/header.component';
-import { LoginComponent } from './components/security/auth/login/login.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
-import { EducacionComponent } from './components/educacion/educacion.component';
-import { PortfolioComponent } from './components/security/portfolio/portfolio.component';
-import { InterceptProvider, PortInterceptorService } from './components/security/interceptors/portfolio-interceptor.service';
+import { HeaderComponent } from './components/header/header.component';
+
 
 
 
@@ -21,14 +22,14 @@ import { InterceptProvider, PortInterceptorService } from './components/security
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     AcercaComponent,
-    ExperienciaComponent,
-    ProyectosComponent,
-    HeaderComponent,
-    HabilidadesComponent,
     EducacionComponent,
+    ExperienciaComponent,
+    HabilidadesComponent,
+    ProyectosComponent,
     PortfolioComponent,
+    LoginComponent,
+    HeaderComponent,
     
   ],
   imports: [
@@ -40,7 +41,7 @@ import { InterceptProvider, PortInterceptorService } from './components/security
 
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass:PortInterceptorService, multi:true}
+  
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,22 @@
+<div class="flex-container">
+<div class="form">
+        <div class="title">Bienvenidx!</div>
+        <div class="subtitle">Podés probar la versión editable del portfolio ingresando como <br> Usuario: admin <br> Contraseña: admin </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+            <div class="input-container ic1">
+                <input type="text" name="userName" formControlName="userName" class="form-control" placeholder="usuario" required>
+                <div class="cut"></div>
+                <label for="userName" class="form-label">Usuario</label>
+            </div>
+            <div class="input-container ic1">
+                <input type="password" name="password" formControlName="password" class="form-control" placeholder="password" required>
+                <div class="cut"></div>
+                <label for="password" class="form-label">Contraseña</label>
+            </div>
+            <div *ngIf="loginError" class="text-danger">Las credenciales ingresadas no existen en nuestros registros.</div>
+            <button type="submit" [disabled]="form.invalid" class="submit">Log in</button>
+        </form>
+    
+</div>
+</div>

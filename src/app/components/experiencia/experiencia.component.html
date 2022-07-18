@@ -1,7 +1,7 @@
 <div class="flex-container" id="main-container">
   <div id="linea">
   </div>
-  <h2>EXPERIENCIA LABORAL <a (click)="onOpenModal(null,'add')" class="btn btn-success tooltips" data-placement="top" data-original-title="Add"><i class="fa fa-plus"></i> </a> </h2>
+  <h2>EXPERIENCIA LABORAL <a (click)="onOpenModal(null,'add')" *ngIf="isUserLogged" class="btn btn-success tooltips" data-placement="top" data-original-title="Add"><i class="fa fa-plus"></i> </a> </h2>
   <div *ngFor="let experiencia of experiencia">
     <div class="cv">
       <div class="row" id="experiencia">
@@ -10,7 +10,7 @@
                   <li>  
                   <h5>{{experiencia.nombreEmpresa}} | {{experiencia.fechaInicio}} - {{experiencia.fechaFin}}</h5>
                   <p>{{experiencia.descripcion}}</p>
-                  <div class="float-right btn-group btn-group-sm">
+                  <div class="float-right btn-group btn-group-sm" *ngIf="isUserLogged">
                     <a (click)="onOpenModal(experiencia,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
                     <a (click)="onOpenModal(experiencia, 'delete')" class="btn btn-danger tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
                   </div>

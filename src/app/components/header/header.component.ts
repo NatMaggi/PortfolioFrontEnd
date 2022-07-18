@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserLogin } from '../security/entity/userLogin';
-import { AuthService } from '../security/service/auth.service';
-import { TokenService } from '../security/service/token.service';
+
+import { AuthService } from 'src/app/servicio/auth.service';
+
 
 @Component({
   selector: 'app-header',
@@ -11,64 +10,19 @@ import { TokenService } from '../security/service/token.service';
 })
 export class HeaderComponent implements OnInit {
 
-  isLogged = false;
-  isLoginFail = false;
-  userLogin: UserLogin;
-  userName: string;
-  password: string;
-  roles: string[] = [];
-  errorMessage: string
-  
+  isUserLogged: boolean = false;
 
-  constructor(private tokenService: TokenService,
-    private authService: AuthService,
-    private router: Router
-    ) { }
+  constructor(
+    private authService: AuthService) { }
 
   ngOnInit(): void {
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-    }else {
-      this.isLogged = false;
-    }
-
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-      this.isLoginFail = false;
-      this.roles = this.tokenService.getAuthorities();
-    }
-    
+    this.isUserLogged = this.authService.isUserLogged();
   }
 
-  onLogOut(): void {
-    this.tokenService.logOut();
+  logOut(): void {
+    this.authService.logout();
+    this.isUserLogged = false;
     window.location.reload();
-    
-  }
-
-  onLogin(): void {
-    this.userLogin = new UserLogin(this.userName, this.password);
-    this.authService.login(this.userLogin).subscribe({
-      next: (data) => {
-        this.isLogged = true;
-        this.isLoginFail = false;
-
-        this.tokenService.setToken(data.token);
-        this.tokenService.setUserName(data.userName);
-        this.tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities;
-        this.router.navigate(['/']);
-        window.location.reload();
-      },
-      error: (err) => {
-        this.isLogged = false;
-        this.isLoginFail = true;
-        this.errorMessage = err.error.error;
-        console.log(err.error.error);
-        
-
-      }
-    })
   }
 
 }

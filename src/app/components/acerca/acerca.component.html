@@ -8,7 +8,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <div class="float-right btn-group btn-group-sm" *ngIf="isAdmin">
+              <div class="float-right btn-group btn-group-sm" *ngIf="isUserLogged">
               <a (click)="onOpenModal(persona, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
                  
               </div>

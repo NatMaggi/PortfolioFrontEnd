@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
 <div class="flex-container" id="main-container"> 
     <div id="linea">
     </div>
@@ -7,39 +10,42 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="card ccard radius-t-0 h-100">
-                    <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div>
-                    <div class="card-header pb-3 brc-secondary-l3">
-                        <h2>HABILIDADES Y APTITUDES <a (click)="onOpenModal(null,'add')" class="btn btn-success tooltips" data-placement="top" data-original-title="Add"><i class="fa fa-plus"></i> </a> </h2>
-                    </div>
-                    <div *ngFor="let hab of habilidades">
-                        <div class="card-body pt-2 pb-1">
-                            <div 
-                                class="d-flex flex-wrap align-items-center my-2 bgc-secondary-l4 bgc-h-secondary-l3 radius-1 p-25 d-style">
-                                <span
-                                    class="mr-25 w-4 h-4 overflow-hidden text-center border-1 brc-secondary-m2 radius-round shadow-sm d-zoom-2">
-                                    <img alt="Alexa's avatar" src="{{hab.url_img}}" class="h-4 w-4" />
-                                </span>
-    
-                                <span class="text-default-d3 text-90 text-600">
-                                    <div class="name">
-                                        {{hab.habilidad}}
-                                        <div class="float-right btn-group btn-group-sm" id="botones">
-                                            <a (click)="onOpenModal(hab,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i>
-                                            </a>
-                                            <a (click)="onOpenModal(hab, 'delete')" class="btn btn-danger tooltips"  data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                    <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px">
+                        <div class="card-header pb-3 brc-secondary-l3">
+                            <h2>HABILIDADES Y APTITUDES <a (click)="onOpenModal(null,'add')" *ngIf="isUserLogged" class="btn btn-success tooltips" data-placement="top" data-original-title="Add"><i class="fa fa-plus"></i> </a> </h2>
+                        </div>
+                        <div *ngFor="let hab of habilidades">
+                            <div class="d-flex align-content-start flex-wrap">
+                                <div 
+                                    class="d-flex flex-wrap align-items-center my-2 bgc-secondary-l4 bgc-h-secondary-l3 radius-1 p-25 d-style">
+                                    <span
+                                        class="mr-25 w-4 h-4 overflow-hidden text-center border-1 brc-secondary-m2 radius-round shadow-sm d-zoom-2">
+                                        <img alt="Alexa's avatar" src="{{hab.url_img}}" class="h-4 w-4" />
+                                    </span>
+        
+                                    <span class="text-default-d3 text-90 text-600">
+                                        <div class="name">
+                                            {{hab.habilidad}}
+                                            <div class="float-right btn-group btn-group-sm" *ngIf="isUserLogged"  id="botones">
+                                                <a (click)="onOpenModal(hab,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i>
+                                                </a>
+                                                <a (click)="onOpenModal(hab, 'delete')" class="btn btn-danger tooltips"  data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </span>     
+                                    </span>     
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>  
-
+        </div>  
+    </div>
+</div>
 <div id="linea">
 </div>
+
+
 
 
 <!-- Add Modal  -->

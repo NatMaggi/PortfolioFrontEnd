@@ -1,78 +1,20 @@
+
 #linea{
     padding: 20px;
     background-color:#fcb219;
 }
-/*
-#main-container{
-    background-color:#fcb219;  
 
-}
-
-#botones{
-    display: flex;
-    justify-content: right;
-
-}
-
-.container{
-    background-color:#fcb219;
-    color: black;
-    font-family: 'Open Sans', sans-serif;
-    display: absolute;
-    justify-content: center;
-    text-align: left;
-
-
-
-}
-
-
-h2{
-    color:black;
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
-    display: absolute;
-    justify-content: center;
-}
-
-ul li{
-    list-style-type: none;
-    float:left;
-    width: 50%;
-    columns: 2;
-    background-color:#fcb219;
-    
-}
-li{
-    padding-bottom: 10px;
-}
-#btn-edit{
-    color:red;
-    justify-content: end;
-    padding:20px;
-}
-
-
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: auto;
-    padding: 0 1rem;
-    margin: 1rem;
-
-}
-*/
 .flex-container{
     background-color: #fcb219!important;
+    display: flex;
+    justify-content:center 
 
 
 }
 .container{
     background-color: #fcb219;
     display: flex;
-    justify-content: center; 
+    justify-content:center 
 }
 
 .card{

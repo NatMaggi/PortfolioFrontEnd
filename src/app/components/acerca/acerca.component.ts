@@ -2,8 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Persona } from 'src/app/model/persona.model';
+import { AuthService } from 'src/app/servicio/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
-import { TokenService } from '../security/service/token.service';
+
 
 @Component({
   selector: 'app-acerca',
@@ -14,22 +15,16 @@ export class AcercaComponent implements OnInit {
   public personas: Persona[];
   public editPersona: Persona;
   public deletePersona: Persona;
-  roles: string[];
-  isAdmin: boolean = false;
+  public isUserLogged: Boolean = false;
+
   
   
-  constructor(private portfolioService: PortfolioService, 
-    private tokenService: TokenService
-    ) {}
+  constructor(private portfolioService: PortfolioService,
+    private authService: AuthService) {}
 
     ngOnInit() {
+      this.isUserLogged = this.authService.isUserLogged();
       this.getPersonas();
-      this.roles = this.tokenService.getAuthorities();
-      this.roles.forEach( role => {
-        if(role === 'ROLE_ADMIN') {
-          this.isAdmin = true;
-        }
-      })
     }
   
   public getPersonas(): void {

@@ -2,7 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Habilidades } from 'src/app/model/habilidades.model';
+import { AuthService } from 'src/app/servicio/auth.service';
 import { HabilidadesService } from 'src/app/servicio/habilidades.service';
+
 
 
 @Component({
@@ -14,12 +16,15 @@ export class HabilidadesComponent implements OnInit {
   public habilidades: Habilidades[];
   public editHabilidades: Habilidades  | undefined;
   public deleteHabilidades: Habilidades | undefined;
+  public isUserLogged: Boolean = false;
 
-  constructor(private habilidadesService: HabilidadesService) { }
+  constructor(private habilidadesService: HabilidadesService,
+    private authService: AuthService) {}
 
-  ngOnInit() {
-    this.getAllHabilidades();
-  }
+    ngOnInit() {
+      this.isUserLogged = this.authService.isUserLogged();
+      this.getAllHabilidades();
+    }
   public getAllHabilidades(): void {
     this.habilidadesService.getAllHabilidades().subscribe({
       next: (response: Habilidades[]) => {
