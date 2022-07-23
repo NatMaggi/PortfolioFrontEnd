@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiBaseUrl: 'http://localhost:8080',
-  apiAuthUrl: 'http://localhost:8080/login'
+  production: true,
+  apiBaseUrl: 'https://portfolio-nmaggi.herokuapp.com/',
+  apiAuthUrl: 'https://portfolio-nmaggi.herokuapp.com/login'
 };
 
 /*
